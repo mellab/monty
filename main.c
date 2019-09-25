@@ -20,7 +20,10 @@ int main(int argc, char **argv)
 	}
 
 	line_number = get_file(argv[1]);
-	(*ptr_opcode)(&stack, line_number);
+
+	for (; list_opcode; list_opcode = list_opcode->next)
+		(*ptr_opcode)(&stack, line_number);
+
 	free_all(stack);
 	return (0);
 }
