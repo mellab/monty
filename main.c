@@ -10,10 +10,11 @@ list_t *list_opcode = NULL;
  */
 int main(int argc, char **argv)
 {
-	int line_number;
+	int line_number = 0;
 	stack_t *stack = NULL;
+	list_t *temp;
 
-	if (argv != 2)
+	if (argc != 2)
 	{
 		print_error(0);
 		exit(98);
@@ -21,9 +22,10 @@ int main(int argc, char **argv)
 
 	line_number = get_file(argv[1]);
 
-	for (; list_opcode; list_opcode = list_opcode->next)
-		(*ptr_opcode)(&stack, line_number);
+	temp = list_opcode;
+	for (; temp; temp = temp->next)
+		(*ptr_opcode(temp))(&stack, line_number);
 
-	free_all(stack);
+	free_list_opcode(list_opcode);
 	return (0);
 }

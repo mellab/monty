@@ -11,14 +11,14 @@ list_t *create_instruction(list_t **head, char *str)
 	list_t *new = NULL;
 	list_t *last = NULL;
 
-	new = calloc(1, sizeof(list_t));
+	new = malloc(sizeof(list_t));
 	if (new == NULL)
 	{
 		print_error(1);
 		exit(98);
 	}
 
-	new->inst = calloc(1, sizeof(instruction_t));
+	new->inst = malloc(sizeof(instruction_t));
 	if (new->inst == NULL)
 	{
 		print_error(1);

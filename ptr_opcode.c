@@ -2,10 +2,11 @@
 
 /**
  * ptr_opcode - Pointer function of struct array
+ * @head: Head of the list
  */
-void (*ptr_opcode(void))(stack_t **stack, unsigned int line_number)
+void (*ptr_opcode(list_t *head))(stack_t **stack, unsigned int line_number)
 {
-	int i;
+	int i, n;
 
 	instruction_t arr_ptr[] = {
 		{"push", push},
@@ -15,8 +16,9 @@ void (*ptr_opcode(void))(stack_t **stack, unsigned int line_number)
 
 	for (i = 0; arr_ptr[i].f; i++)
 	{
-		if (cmp_inst(list_opcode->inst->opcode, arr_ptr[i].opcode) == 0)
-		        return (arr_ptr[i].f);
+		n = cmp_inst(head->inst->opcode, arr_ptr[i].opcode);
+		if (n == 0)
+			return (arr_ptr[i].f);
 	}
 
 	return (nothing);

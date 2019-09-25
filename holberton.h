@@ -22,9 +22,9 @@
  */
 typedef struct stack_s
 {
-        int n;
-        struct stack_s *prev;
-        struct stack_s *next;
+	int n;
+	struct stack_s *prev;
+	struct stack_s *next;
 } stack_t;
 
 /**
@@ -37,8 +37,8 @@ typedef struct stack_s
  */
 typedef struct instruction_s
 {
-        char *opcode;
-        void (*f)(stack_t **stack, unsigned int line_number);
+	char *opcode;
+	void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
 
 /**
@@ -60,15 +60,16 @@ extern list_t *list_opcode;
 int get_file(char *str);
 void print_error(int n);
 list_t *create_instruction(list_t **head, char *str);
-void (*ptr_opcode(void))(stack_t **stack, unsigned int line_number);
+void (*ptr_opcode(list_t *head))(stack_t **stack, unsigned int line_number);
 void free_all(stack_t *stack);
 char *_strdup(char *str);
 int _strlen(char *str);
 int clean_string(char *buff, char *str);
 void free_list_opcode(list_t *head);
-int cmp_inst(char *str1, char *str2);
+void *_calloc(unsigned int nmemb, unsigned int size);
 void push(stack_t **stack, unsigned int line_number);
 void pall(stack_t **stack, unsigned int line_number);
 void nothing(stack_t **stack, unsigned int line_number);
+int cmp_inst(char *str1, char *str);
 
 #endif

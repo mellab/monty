@@ -10,28 +10,30 @@ int clean_string(char *buff, char *str)
 {
 	int i, j, k = 0;
 
-	for (i = 0, j = 0; str[i] || str[i] != '\n'; i++)
+	for (i = 0, j = 0; str[i] && str[i] != '\n'; i++)
 	{
-		for (; str[i] != ' ' && str[i] != '\t'; i++, j++)
+		if (str[i] != ' ' && str[i] != '\t')
 		{
 			buff[j] = str[i];
 			k = 1;
+			j++;
 		}
-		if (k == 1)
+		else if (k == 1 && (str[i] == ' ' || str[i] == '\t'))
 			break;
 	}
 
 	buff[j] = ' ';
 	j++;
 
-	for (; str[i] || str[i] != '\n'; i++)
+	for (; str[i] && str[i] != '\n'; i++)
 	{
-		for (; str[i] != ' ' && str[i] != '\t'; i++, j++)
+		if (str[i] != ' ' && str[i] != '\t')
 		{
 			buff[j] = str[i];
-			k = 0;
+			k = 2;
+			j++;
 		}
-		if (k == 0)
+		else if (k == 2 && (str[i] == ' ' || str[i] == '\t'))
 			break;
 	}
 
