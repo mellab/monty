@@ -71,5 +71,6 @@ void push(stack_t **stack, unsigned int line_number);
 void pall(stack_t **stack, unsigned int line_number);
 void nothing(stack_t **stack, unsigned int line_number);
 int cmp_inst(char *str1, char *str);
+stack_t *add_nodeint(stack_t **head, const int n)
 
 #endif
