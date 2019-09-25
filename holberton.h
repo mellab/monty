@@ -62,10 +62,11 @@ void print_error(int n);
 list_t *create_instruction(list_t **head, char *str);
 void (*ptr_opcode)(stack_t **stack, unsigned int line_number);
 void free_all(stack_t *stack);
-//list_t *add_nodeinst_end(list_s **head, char *str);
+/*list_t *add_nodeinst_end(list_s **head, char *str);*/
 char *_strdup(char *str);
 int _strlen(char *str);
 int clean_string(char *buff, char *str);
 void free_list_opcode(list_t *head);
+void *_calloc(unsigned int nmemb, unsigned int size)
 
 #endif
