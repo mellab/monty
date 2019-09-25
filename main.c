@@ -1,6 +1,6 @@
 #include "holberton.h"
 
-list_t *list;
+list_t *list_opcode = NULL;
 
 /**
  * main - Main entry point for Stacks and Queues

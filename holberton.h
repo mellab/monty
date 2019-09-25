@@ -1,9 +1,15 @@
 #ifndef HOLBERTON_H_
 #define HOLBERTON_H_
 
-#define <stdio.h>
-#define <stdlib.h>
-#define <unistd.h>
+/* Standard Libraries */
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <unistd.h>
+
+#include <string.h>
+
+/* Structs and Lists */
 
 /**
  * struct stack_s - doubly linked list representation of a stack (or queue)
@@ -47,12 +53,19 @@ typedef struct list_s
 	struct list_s *next;
 } list_t;
 
-extern list_t *list;
+extern list_t *list_opcode;
+
+/* Prototype Functions */
 
 int get_file(char *str);
 void print_error(int n);
-int create_instruction(char *str);
+list_t *create_instruction(list_t **head, char *str);
 void (*ptr_opcode)(stack_t **stack, unsigned int line_number);
 void free_all(stack_t *stack);
+//list_t *add_nodeinst_end(list_s **head, char *str);
+char *_strdup(char *str);
+int _strlen(char *str);
+int clean_string(char *buff, char *str);
+void free_list_opcode(list_t *head);
 
 #endif
