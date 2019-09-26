@@ -13,6 +13,7 @@ void (*ptr_opcode(list_t *head))(stack_t **stack, unsigned int line_number)
 	instruction_t arr_ptr[] = {
 		{"push", push},
 		{"pall", pall},
+		{"pint", pint},
 		{"pop", pop},
 		{"swap", swap},
 		{"add", add},
