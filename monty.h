@@ -45,7 +45,7 @@ typedef struct instruction_s
 
 /**
  * struct list_s - linked list of struct instruction
- * @n: node
+ * @n: number of line
  * @inst: instruction of opcode and its function
  * @next: points to the next element of the linked list
  * Description: Single linked list of the struct instruction
@@ -63,7 +63,7 @@ extern list_t *list_opcode;
 
 int get_file(char *str);
 void check_file(char *str);
-list_t *create_instruction(list_t **head, char *str);
+list_t *create_instruction(list_t **head, char *str, int n);
 void (*ptr_opcode(list_t *head))(stack_t **stack, unsigned int line_number);
 char *_strdup(char *str);
 int _strlen(char *str);

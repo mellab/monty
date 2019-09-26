@@ -32,20 +32,20 @@ int get_file(char *str)
 		for (i = 0, j = 0; line_buf[i] && line_buf[i] != '\n'; i++)
 			if (line_buf[i] != ' ')
 				j++;
+
+		line_counter++;
 		if (j > 0)
 		{
 			clean_string(b, line_buf);
-			create_instruction(&list_opcode, buff);
-			line_counter++;
+			create_instruction(&list_opcode, buff, line_counter);
 		}
+
 
 		line_size = getline(&line_buf, &line_buf_size, fp);
 	}
 
 	free(line_buf);
 	line_buf = NULL;
-
 	fclose(fp);
-
 	return (line_counter);
 }

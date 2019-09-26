@@ -10,7 +10,6 @@ list_t *list_opcode = NULL;
  */
 int main(int argc, char **argv)
 {
-	int line_number = 1;
 	stack_t *stack = NULL;
 	list_t *temp;
 
@@ -25,8 +24,8 @@ int main(int argc, char **argv)
 
 	temp = list_opcode;
 
-	for (; temp; temp = temp->next, line_number++)
-		(*ptr_opcode(temp))(&stack, line_number);
+	for (; temp; temp = temp->next)
+		(*ptr_opcode(temp))(&stack, temp->n);
 
 	free_all(list_opcode, stack);
 	return (0);
