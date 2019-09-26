@@ -29,8 +29,15 @@ void push(stack_t **stack, unsigned int line_number)
 			break;
 		if (t->inst[i] >= '0' && t->inst[i] <= '9')
 			k = 1;
+		if (k == 1 && (t->inst[i] < '0' || t->inst[i] > '9'))
+		{
+			k = 2;
+			break;
+		}
 		buff[j] = t->inst[i];
 	}
+	if (k == 2)
+		print_error_push(stack, line_number);
 	if (t->inst[5] < '0' || t->inst[5] > '9')
 	{
 		k = 0;
@@ -42,7 +49,7 @@ void push(stack_t **stack, unsigned int line_number)
 		}
 	}
 
-	if (k != 1)
+	if (k == 0)
 		print_error_push(stack, line_number);
 	add_nodeint(stack, atoi(buff));
 }
