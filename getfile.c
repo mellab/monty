@@ -19,7 +19,7 @@ int get_file(char *str)
 	if (!fp)
 	{
 		fprintf(stderr, "Error: Can't open file %s\n", str);
-	        exit(EXIT_FAILURE);
+		exit(EXIT_FAILURE);
 	}
 
 	line_size = getline(&line_buf, &line_buf_size, fp);
