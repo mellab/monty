@@ -25,18 +25,24 @@ void push(stack_t **stack, unsigned int line_number)
 	i = 5;
 	for (; j < 1024 && t->inst[i] != '\n' && t->inst[i] != EOF; i++, j++)
 	{
-		if (t->inst[i] == '\0')
+		if (t->inst[i] == '\0' || t->inst[i] == ' ' || t->inst[i] == '\t')
 			break;
 		if (t->inst[i] >= '0' && t->inst[i] <= '9')
 			k = 1;
 		buff[j] = t->inst[i];
 	}
+	if (t->inst[5] < '0' || t->inst[5] > '9')
+	{
+		k = 0;
+		if (t->inst[5] == '-' && t->inst[5] == '+')
+		{
+			k = 1;
+			if (t->inst[6] < '0' || t->inst[6] > '9')
+				k = 0;
+		}
+	}
 
-	if (t->inst[5] != '+' || t->inst[i] != '-')
-		k = 0;
-	if (t->inst[5] < '0' || t->inst[i] > '9')
-		k = 0;
-	if (k != 1 && t->inst[i] != ' ' && t->inst[i] != '\t')
+	if (k != 1)
 		print_error_push(stack, line_number);
 	add_nodeint(stack, atoi(buff));
 }
