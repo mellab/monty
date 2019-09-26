@@ -7,7 +7,7 @@
  * @n: number of line
  * Return: 0 on succes or -1 if it fails
  */
-list_t *create_instruction(list_t **head, char *str, int n)
+list_t *create_instruction(list_t **head, char *str, int n, FILE *fp)
 {
 	list_t *new = NULL;
 	list_t *last = NULL;
@@ -17,11 +17,12 @@ list_t *create_instruction(list_t **head, char *str, int n)
 	{
 		fprintf(stderr, "Error: malloc failed\n");
 		free_list_opcode(list_opcode);
+		fclose(fp);
 		exit(EXIT_FAILURE);
 	}
 
 	new->n = n;
-	new->inst = _strdup(str);
+	new->inst = _strdup(str, fp);
 	new->next = NULL;
 
 	n++;

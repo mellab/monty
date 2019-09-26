@@ -37,7 +37,7 @@ int get_file(char *str)
 		if (j > 0)
 		{
 			clean_string(b, line_buf);
-			create_instruction(&list_opcode, buff, line_counter);
+			create_instruction(&list_opcode, buff, line_counter, fp);
 		}
 
 

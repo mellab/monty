@@ -6,7 +6,7 @@
  * Return: Return a string allocated or NULL if it fails
  */
 
-char *_strdup(char *str)
+char *_strdup(char *str, FILE *fp)
 {
 	int i;
 	char *new;
@@ -21,6 +21,7 @@ char *_strdup(char *str)
 	{
 		fprintf(stderr, "Error: malloc failed\n");
 		free_list_opcode(list_opcode);
+		fclose(fp);
 		exit(EXIT_FAILURE);
 	}
 

@@ -63,9 +63,9 @@ extern list_t *list_opcode;
 
 int get_file(char *str);
 void check_file(char *str);
-list_t *create_instruction(list_t **head, char *str, int n);
+list_t *create_instruction(list_t **head, char *str, int n, FILE *fp);
 void (*ptr_opcode(list_t *head))(stack_t **stack, unsigned int line_number);
-char *_strdup(char *str);
+char *_strdup(char *str, FILE *fp);
 int _strlen(char *str);
 int clean_string(char *buff, char *str);
 void free_list_opcode(list_t *head);
