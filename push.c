@@ -34,7 +34,7 @@ void push(stack_t **stack, unsigned int line_number)
 	if (t->inst[5] < '0' || t->inst[5] > '9')
 	{
 		k = 0;
-		if (t->inst[5] == '-' && t->inst[5] == '+')
+		if (t->inst[5] == '-' || t->inst[5] == '+')
 		{
 			k = 1;
 			if (t->inst[6] < '0' || t->inst[6] > '9')
