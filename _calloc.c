@@ -20,7 +20,12 @@ void *_calloc(unsigned int nmemb, unsigned int size)
 	p = malloc(nmemb * size);
 
 	if (p == NULL)
-		return (NULL);
+	{
+		fprintf(stderr, "Error: malloc failed\n");
+		if (list_opcode != NULL)
+			free_list_opcode(list_opcode);
+		exit(EXIT_FAILURE);
+	}
 
 	for (a = 0; a < (nmemb * size); a++)
 		p[a] = 0;

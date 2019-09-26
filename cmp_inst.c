@@ -21,5 +21,8 @@ int cmp_inst(char *str1, char *str2)
 		}
 	}
 
+	if (str1[i] != ' ' && str1[i] != '\t' && str1[i] != '\0' && str1[i] != '\n')
+		n = 1;
+
 	return (n);
 }

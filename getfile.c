@@ -12,7 +12,7 @@ int get_file(char *str)
 	char buff[1024];
 	char *b = buff;
 	size_t line_buf_size = 0;
-	int line_counter = 0, i;
+	int line_counter = 0, i, j;
 	ssize_t line_size = 0;
 	FILE *fp = fopen(str, "r");
 
@@ -29,9 +29,15 @@ int get_file(char *str)
 
 	while (line_size >= 0)
 	{
-		clean_string(b, line_buf);
-		create_instruction(&list_opcode, buff);
-		line_counter++;
+		for (i = 0, j = 0; line_buf[i] && line_buf[i] != '\n'; i++)
+			if (line_buf[i] != ' ')
+				j++;
+		if (j > 0)
+		{
+			clean_string(b, line_buf);
+			create_instruction(&list_opcode, buff);
+			line_counter++;
+		}
 
 		line_size = getline(&line_buf, &line_buf_size, fp);
 	}
@@ -42,5 +48,4 @@ int get_file(char *str)
 	fclose(fp);
 
 	return (line_counter);
-
 }
