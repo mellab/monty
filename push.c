@@ -1,47 +1,57 @@
 #include "monty.h"
 
+void print_error_push(stack_t **stack, int line_number);
+
 /**
  * push - Function that pushes nodes in the stack
  * @stack: stack structure
  * @line_number: Number of instructions
  */
-
 void push(stack_t **stack, unsigned int line_number)
 {
-	int i = 0, j = 0;
-	int k;
-	list_t *temp = NULL;
+	int i = 0, j = 0, k = 0;
+	char buff[1024];
+	list_t *t = NULL;
 
 	if (list_opcode != NULL)
-		temp = list_opcode;
+		t = list_opcode;
 
-	for (; temp->next; temp = temp->next)
-		if (temp->n == (int) line_number)
+	for (; t->next; t = t->next)
+		if (t->n == (int) line_number)
 			break;
 
-	if (temp->inst[5] < '0' || temp->inst[5] > '9')
+	for (i = 0; i < 1024; i++)
+		buff[i] = 0;
+	i = 5;
+	for (; j < 1024 && t->inst[i] != '\n' && t->inst[i] != EOF; i++, j++)
 	{
-		fprintf(stderr, "L%d: usage: push integer\n", line_number);
-		if (*stack != NULL)
-			free_list_stack(*stack);
-		free_list_opcode(list_opcode);
-		exit(EXIT_FAILURE);
+		if (t->inst[i] == '\0')
+			break;
+		if (t->inst[i] >= '0' && t->inst[i] <= '9')
+			k = 1;
+		buff[j] = t->inst[i];
 	}
 
-	for (i = 5, k = 10; temp->inst[i] >= '0' && temp->inst[i] <= '9'; i++)
-	{
-		j *= k;
-		j += (temp->inst[i] - 48);
-	}
+	if (t->inst[5] != '+' || t->inst[i] != '-')
+		k = 0;
+	if (t->inst[5] < '0' || t->inst[i] > '9')
+		k = 0;
+	if (k != 1 && t->inst[i] != ' ' && t->inst[i] != '\t')
+		print_error_push(stack, line_number);
+	add_nodeint(stack, atoi(buff));
+}
 
-	if (temp->inst[i] != ' ' && temp->inst[i] > '\t')
-	{
-		fprintf(stderr, "L%d: usage: push integer\n", line_number);
-		if (*stack != NULL)
-			free_list_stack(*stack);
-		free_list_opcode(list_opcode);
-		exit(EXIT_FAILURE);
-	}
 
-	add_nodeint(stack, j);
+/**
+ * print_error_push - function that prints error
+ * @stack: stack structure
+ * @line_number: Number of instruction
+ */
+void print_error_push(stack_t **stack, int line_number)
+{
+	fprintf(stderr, "L%d: usage: push integer\n", line_number);
+	if (*stack != NULL)
+		free_list_stack(*stack);
+	free_list_opcode(list_opcode);
+	exit(EXIT_FAILURE);
 }
