@@ -9,6 +9,7 @@
 void (*ptr_opcode(list_t *head))(stack_t **stack, unsigned int line_number)
 {
 	int i, n;
+	char buff[1024];
 
 	instruction_t arr_ptr[] = {
 		{"push", push},
@@ -23,7 +24,12 @@ void (*ptr_opcode(list_t *head))(stack_t **stack, unsigned int line_number)
 			return (arr_ptr[i].f);
 	}
 
-	fprintf(stderr, "L%d: unknown instruction %s\n", head->n, head->inst);
+	for (i = 0; i < 1024; i++)
+		buff[i] = 0;
+	for (i = 0; head->inst[i] && head->inst[i] != ' '; i++)
+		buff[i] = head->inst[i];
+
+	fprintf(stderr, "L%d: unknown instruction %s\n", head->n, buff);
 
 	return (nothing);
 }
