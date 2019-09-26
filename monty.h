@@ -62,6 +62,7 @@ extern list_t *list_opcode;
 /* Prototype Functions */
 
 int get_file(char *str);
+void check_file(char *str);
 list_t *create_instruction(list_t **head, char *str);
 void (*ptr_opcode(list_t *head))(stack_t **stack, unsigned int line_number);
 char *_strdup(char *str);

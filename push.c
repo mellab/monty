@@ -19,7 +19,7 @@ void push(stack_t **stack, unsigned int line_number)
 		if (temp->n == (int) line_number)
 			break;
 
-	if (temp->inst[5] < '0' || temp->inst[6] > '9')
+	if (temp->inst[5] < '0' || temp->inst[5] > '9')
 	{
 		fprintf(stderr, "L%d: usage: push integer\n", line_number);
 		if (*stack != NULL)
@@ -32,6 +32,15 @@ void push(stack_t **stack, unsigned int line_number)
 	{
 		j *= k;
 		j += (temp->inst[i] - 48);
+	}
+
+	if (temp->inst[i] != ' ' && temp->inst[i] > '\t')
+	{
+		fprintf(stderr, "L%d: usage: push integer\n", line_number);
+		if (*stack != NULL)
+			free_list_stack(*stack);
+		free_list_opcode(list_opcode);
+		exit(EXIT_FAILURE);
 	}
 
 	add_nodeint(stack, j);
