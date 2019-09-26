@@ -1,6 +1,8 @@
 #ifndef HOLBERTON_H_
 #define HOLBERTON_H_
 
+#define UN __attribute__((__unused__))
+
 /* Standard Libraries */
 
 #include <stdio.h>
@@ -43,6 +45,7 @@ typedef struct instruction_s
 
 /**
  * struct list_s - linked list of struct instruction
+ * @n: node
  * @inst: instruction of opcode and its function
  * @next: points to the next element of the linked list
  * Description: Single linked list of the struct instruction
@@ -50,7 +53,7 @@ typedef struct instruction_s
 typedef struct list_s
 {
 	int n;
-        char *inst;
+	char *inst;
 	struct list_s *next;
 } list_t;
 

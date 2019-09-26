@@ -5,7 +5,7 @@
  * @stack: stack structure
  * @line_number: Number of instruction
  */
-void nothing(stack_t **stack, unsigned int line_number)
+void nothing(stack_t **stack, UN unsigned int line_number)
 {
 	if (list_opcode != NULL)
 		free_list_opcode(list_opcode);

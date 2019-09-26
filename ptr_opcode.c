@@ -3,7 +3,9 @@
 /**
  * ptr_opcode - Pointer function of struct array
  * @head: Head of the list
+ * Return: pointer to an array of structures
  */
+
 void (*ptr_opcode(list_t *head))(stack_t **stack, unsigned int line_number)
 {
 	int i, n;

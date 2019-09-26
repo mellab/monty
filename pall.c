@@ -3,9 +3,10 @@
 /**
  * pall - Function that prints the stack
  * @stack: stack structure
- * @line_number_ Number of instruction
+ * @line_number: number of instruction
  */
-void pall(stack_t **stack, unsigned int line_number)
+
+void pall(stack_t **stack, UN unsigned int line_number)
 {
 	stack_t *temp = NULL;
 	int n = 0;
