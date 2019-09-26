@@ -1,4 +1,4 @@
-#include "holberton.h"
+#include "monty.h"
 
 /**
  * cmp_inst - Function that compares instructions with the function pointers

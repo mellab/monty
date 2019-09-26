@@ -1,5 +1,5 @@
-#ifndef HOLBERTON_H_
-#define HOLBERTON_H_
+#ifndef MONTY_H_
+#define MONTY_H_
 
 #define UN __attribute__((__unused__))
 
@@ -77,4 +77,4 @@ stack_t *add_nodeint(stack_t **head, const int n);
 void free_all(list_t *list_opcode, stack_t *stack);
 void free_list_stack(stack_t *head);
 
-#endif
+#endif /* MONTY_H_ */
