@@ -84,5 +84,8 @@ void pop(stack_t **stack, unsigned int line_number);
 void add(stack_t **stack, unsigned int line_number);
 void nop(UN stack_t **stack, UN unsigned int line_number);
 void sub(stack_t **stack, unsigned int line_number);
+int check_arg(char *buff);
+int cpy_arg(list_t *t, char *buff);
+void print_error_push(stack_t **stack, int line_number);
 
 #endif /* MONTY_H_ */

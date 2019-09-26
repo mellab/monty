@@ -3,6 +3,7 @@
 /**
  * _strdup - Function that returns a pointer to a newly allocated memory
  * @str: String to be allocated
+ * @fp: open file
  * Return: Return a string allocated or NULL if it fails
  */
 
