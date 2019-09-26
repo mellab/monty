@@ -49,7 +49,8 @@ typedef struct instruction_s
  */
 typedef struct list_s
 {
-	struct instruction_s *inst;
+	int n;
+        char *inst;
 	struct list_s *next;
 } list_t;
 
@@ -58,10 +59,8 @@ extern list_t *list_opcode;
 /* Prototype Functions */
 
 int get_file(char *str);
-void print_error(int n);
 list_t *create_instruction(list_t **head, char *str);
 void (*ptr_opcode(list_t *head))(stack_t **stack, unsigned int line_number);
-void free_all(stack_t *stack);
 char *_strdup(char *str);
 int _strlen(char *str);
 int clean_string(char *buff, char *str);
@@ -71,6 +70,8 @@ void push(stack_t **stack, unsigned int line_number);
 void pall(stack_t **stack, unsigned int line_number);
 void nothing(stack_t **stack, unsigned int line_number);
 int cmp_inst(char *str1, char *str);
-stack_t *add_nodeint(stack_t **head, const int n)
+stack_t *add_nodeint(stack_t **head, const int n);
+void free_all(list_t *list_opcode, stack_t *stack);
+void free_list_stack(stack_t *head);
 
 #endif

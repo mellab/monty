@@ -10,22 +10,23 @@ list_t *list_opcode = NULL;
  */
 int main(int argc, char **argv)
 {
-	int line_number = 0;
+	int line_number = 1;
 	stack_t *stack = NULL;
 	list_t *temp;
 
 	if (argc != 2)
 	{
-		print_error(0);
-		exit(98);
+		fprintf(stderr, "USAGE: monty file\n");
+		exit(EXIT_FAILURE);
 	}
 
-	line_number = get_file(argv[1]);
+	get_file(argv[1]);
 
 	temp = list_opcode;
-	for (; temp; temp = temp->next)
+
+	for (; temp; temp = temp->next, line_number++)
 		(*ptr_opcode(temp))(&stack, line_number);
 
-	free_list_opcode(list_opcode);
+	free_all(list_opcode, stack);
 	return (0);
 }

@@ -16,10 +16,12 @@ void (*ptr_opcode(list_t *head))(stack_t **stack, unsigned int line_number)
 
 	for (i = 0; arr_ptr[i].f; i++)
 	{
-		n = cmp_inst(head->inst->opcode, arr_ptr[i].opcode);
+		n = cmp_inst(head->inst, arr_ptr[i].opcode);
 		if (n == 0)
 			return (arr_ptr[i].f);
 	}
+
+	fprintf(stderr, "L%d: unknown instruction %s\n", head->n, head->inst);
 
 	return (nothing);
 }

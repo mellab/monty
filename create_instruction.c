@@ -10,22 +10,21 @@ list_t *create_instruction(list_t **head, char *str)
 {
 	list_t *new = NULL;
 	list_t *last = NULL;
+	static int n = 1;
 
 	new = malloc(sizeof(list_t));
 	if (new == NULL)
 	{
-		print_error(1);
-		exit(98);
+		fprintf(stderr, "Error: malloc failed\n");
+		free_list_opcode(list_opcode);
+		exit(EXIT_FAILURE);
 	}
 
-	new->inst = malloc(sizeof(instruction_t));
-	if (new->inst == NULL)
-	{
-		print_error(1);
-		exit(98);
-	}
-	new->inst->opcode = _strdup(str);
+	new->n = n;
+	new->inst = _strdup(str);
 	new->next = NULL;
+
+	n++;
 
 	if (*head == NULL)
 	{

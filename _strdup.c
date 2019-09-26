@@ -19,8 +19,9 @@ char *_strdup(char *str)
 	new = _calloc(i + 1, sizeof(char));
 	if (new == NULL)
 	{
-		print_error(1);
-		exit(98);
+		fprintf(stderr, "Error: malloc failed\n");
+		free_list_opcode(list_opcode);
+		exit(EXIT_FAILURE);
 	}
 
 	for (i = 0; i < str[i]; i++)

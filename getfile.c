@@ -18,7 +18,7 @@ int get_file(char *str)
 
 	if (!fp)
 	{
-		fprintf(stderr, "Error opening file %s\n", str);
+		fprintf(stderr, "Error: Can't open file %s\n", str);
 		return (EXIT_FAILURE);
 	}
 

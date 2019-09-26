@@ -12,7 +12,6 @@ void free_list_opcode(list_t *head)
 	{
 		temp = head;
 		head = head->next;
-		free(temp->inst->opcode);
 		free(temp->inst);
 		free(temp);
 	}
