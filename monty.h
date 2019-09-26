@@ -77,5 +77,10 @@ int cmp_inst(char *str1, char *str);
 stack_t *add_nodeint(stack_t **head, const int n);
 void free_all(list_t *list_opcode, stack_t *stack);
 void free_list_stack(stack_t *head);
+void swap(stack_t **stack, UN unsigned int line_number);
+int stack_len(stack_t *head);
+void pop(stack_t **stack, unsigned int line_number);
+void add(stack_t **stack, unsigned int line_number);
+void nop(UN stack_t **stack, UN unsigned int line_number);
 
 #endif /* MONTY_H_ */

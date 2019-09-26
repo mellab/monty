@@ -5,7 +5,6 @@
  * @head: Head of the list
  * Return: pointer to an array of structures
  */
-
 void (*ptr_opcode(list_t *head))(stack_t **stack, unsigned int line_number)
 {
 	int i, n;
@@ -14,6 +13,10 @@ void (*ptr_opcode(list_t *head))(stack_t **stack, unsigned int line_number)
 	instruction_t arr_ptr[] = {
 		{"push", push},
 		{"pall", pall},
+		{"pop", pop},
+		{"swap", swap},
+		{"add", add},
+		{"nop", nop},
 		{NULL, NULL}
 	};
 
