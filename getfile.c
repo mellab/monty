@@ -9,7 +9,7 @@
 int get_file(char *str)
 {
 	char *line_buf = NULL;
-	char buff[1024];
+	char buff[10024];
 	char *b = buff;
 	size_t line_buf_size = 0;
 	int line_counter = 0, i, j;
@@ -24,7 +24,7 @@ int get_file(char *str)
 
 	line_size = getline(&line_buf, &line_buf_size, fp);
 
-	for (i = 0; i < 1024; i++)
+	for (i = 0; i < 10024; i++)
 		buff[i] = 0;
 
 	while (line_size >= 0)

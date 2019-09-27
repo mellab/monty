@@ -10,7 +10,7 @@ int cpy_arg(list_t *t, char *buff)
 {
 	int i, j;
 
-	for (i = 0; i < 1024; i++)
+	for (i = 0; i < 10024; i++)
 		buff[i] = 0;
 
 	for (i = 5, j = 0; t->inst[i] != '\0' && t->inst[i] != ' '; i++, j++)

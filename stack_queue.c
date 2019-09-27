@@ -10,7 +10,7 @@ void core_stack_queue(stack_t **stack, unsigned int line_number, int sq)
 {
 	static int turn;
 	int i, j;
-	char buff[1024];
+	char buff[10024];
 	char *b = buff;
 	list_t *t = NULL;
 
