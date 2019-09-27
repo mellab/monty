@@ -19,7 +19,7 @@ void pstr(stack_t **stack, UN unsigned int line_number)
 
 	while (temp)
 	{
-		if ((temp->n < 0 && temp->n > 255) || temp->n == 0)
+		if (temp->n <= 0 || temp->n >= 128)
 		{
 			putchar(10);
 			return;
