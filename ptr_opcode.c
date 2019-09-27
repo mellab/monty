@@ -24,6 +24,8 @@ void (*ptr_opcode(list_t *head))(stack_t **stack, unsigned int line_number)
 		{"mod", _mod},
 		{"queue", queue},
 		{"stack", stack},
+		{"pchar", pchar},
+		{"pstr", pstr},
 		{NULL, NULL}
 	};
 

@@ -51,6 +51,7 @@ void print_error_push(stack_t **stack, int line_number)
 	fprintf(stderr, "L%d: usage: push integer\n", line_number);
 	if (*stack != NULL)
 		free_list_stack(*stack);
-	free_list_opcode(list_opcode);
+	if (list_opcode != NULL)
+		free_list_opcode(list_opcode);
 	exit(EXIT_FAILURE);
 }

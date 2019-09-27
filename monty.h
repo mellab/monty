@@ -94,5 +94,7 @@ stack_t *add_dnodeint_end(stack_t **head, const int n);
 void core_stack_queue(stack_t **stack, unsigned int line_number, int sq);
 void queue(stack_t **stack, unsigned int line_number);
 void stack(stack_t **stack, unsigned int line_number);
+void pchar(stack_t **stack, unsigned int line_number);
+void pstr(stack_t **stack, UN unsigned int line_number);
 
 #endif /* MONTY_H_ */

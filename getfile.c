@@ -21,29 +21,28 @@ int get_file(char *str)
 		fprintf(stderr, "Error: Can't open file %s\n", str);
 		exit(EXIT_FAILURE);
 	}
-
 	line_size = getline(&line_buf, &line_buf_size, fp);
-
 	for (i = 0; i < 10024; i++)
 		buff[i] = 0;
-
 	while (line_size >= 0)
 	{
+		if (line_buf[0] == '#')
+		{
+			line_size = getline(&line_buf, &line_buf_size, fp);
+			line_counter++;
+			continue;
+		}
 		for (i = 0, j = 0; line_buf[i] && line_buf[i] != '\n'; i++)
 			if (line_buf[i] != ' ')
 				j++;
-
 		line_counter++;
 		if (j > 0)
 		{
 			clean_string(b, line_buf);
 			create_instruction(&list_opcode, b, line_counter, fp);
 		}
-
-
 		line_size = getline(&line_buf, &line_buf_size, fp);
 	}
-
 	free(line_buf);
 	line_buf = NULL;
 	fclose(fp);
