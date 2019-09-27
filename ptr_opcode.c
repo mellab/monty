@@ -28,6 +28,7 @@ void (*ptr_opcode(list_t *head))(stack_t **stack, unsigned int line_number)
 		{"stack", stack},
 		{"pchar", pchar},
 		{"pstr", pstr},
+		{"rotl", rotl},
 		{NULL, NULL}
 	};
 	for (i = 0; arr_ptr[i].f; i++)
