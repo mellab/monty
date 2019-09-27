@@ -49,9 +49,9 @@ void core_stack_queue(stack_t **stack, unsigned int line_number, int sq)
 void print_error_push(stack_t **stack, int line_number)
 {
 	fprintf(stderr, "L%d: usage: push integer\n", line_number);
-	if (*stack != NULL)
+	if (*stack)
 		free_list_stack(*stack);
-	if (list_opcode != NULL)
+	if (list_opcode)
 		free_list_opcode(list_opcode);
 	exit(EXIT_FAILURE);
 }

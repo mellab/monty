@@ -22,7 +22,7 @@ void *_calloc(unsigned int nmemb, unsigned int size)
 	if (p == NULL)
 	{
 		fprintf(stderr, "Error: malloc failed\n");
-		if (list_opcode != NULL)
+		if (list_opcode)
 			free_list_opcode(list_opcode);
 		exit(EXIT_FAILURE);
 	}

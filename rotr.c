@@ -5,7 +5,6 @@
  * @stack: stack structure
  * @line_number: number of instruction
  */
-
 void rotr(stack_t **stack, UN unsigned int line_number)
 {
 	stack_t *temp = NULL;
@@ -20,7 +19,7 @@ void rotr(stack_t **stack, UN unsigned int line_number)
 		;
 
 	temp->prev->next = NULL;
-        temp->next = *stack;
+	temp->next = *stack;
 	temp->prev = NULL;
 	(*stack)->prev = temp;
 	*stack = temp;

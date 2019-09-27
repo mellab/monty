@@ -17,7 +17,8 @@ list_t *create_instruction(list_t **head, char *str, int n, FILE *fp)
 	if (new == NULL)
 	{
 		fprintf(stderr, "Error: malloc failed\n");
-		free_list_opcode(list_opcode);
+		if (list_opcode)
+			free_list_opcode(list_opcode);
 		fclose(fp);
 		exit(EXIT_FAILURE);
 	}
