@@ -40,7 +40,8 @@ push 4$
     push 5    $
       push    6        $
 pall$
-vagrant@vagrant-ubuntu-trusty-64:~/0x19-stacks_queues_lifo_fifo```
+vagrant@vagrant-ubuntu-trusty-64:~/0x19-stacks_queues_lifo_fifo
+```
 
 Monty byte code files can contain blank lines (empty or made of spaces only, and any additional text after the opcode or its required argument is not taken into account:
 
@@ -60,4 +61,5 @@ $
       push    6        $
 $
 pall This is the end of our program. Monty is awesome!$
-vagrant@vagrant-ubuntu-trusty-64:~/0x19-stacks_queues_lifo_fifo$```
+vagrant@vagrant-ubuntu-trusty-64:~/0x19-stacks_queues_lifo_fifo$
+```
