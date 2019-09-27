@@ -19,7 +19,6 @@ int main(int argc, char **argv)
 		exit(EXIT_FAILURE);
 	}
 
-	check_file(argv[1]);
 	get_file(argv[1]);
 
 	temp = list_opcode;
