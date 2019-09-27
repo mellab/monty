@@ -22,6 +22,8 @@ void (*ptr_opcode(list_t *head))(stack_t **stack, unsigned int line_number)
 		{"div", _div},
 		{"mul", _mul},
 		{"mod", _mod},
+		{"queue", queue},
+		{"stack", stack},
 		{NULL, NULL}
 	};
 
