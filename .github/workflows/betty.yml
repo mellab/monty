@@ -15,4 +15,4 @@ jobs:
     - name: configure
       run: git clone https://github.com/holbertonschool/Betty.git && cd ./Betty && sudo ./install.sh && cd ..
     - name: betty check
-      run: betty */*.c */*.h
+      run: betty *.c *.h
